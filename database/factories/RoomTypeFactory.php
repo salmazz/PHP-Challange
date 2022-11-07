@@ -1,8 +1,9 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Database\Factories;
 
-use App\Models\RoomType;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -15,7 +16,7 @@ class RoomTypeFactory extends Factory
      *
      * @return array<string, mixed>
      */
-    public function definition()
+    public function definition():array
     {
         return [
             'size' => fake()->numberBetween(1,5),

@@ -58,7 +58,7 @@ Link of postman collection https://www.getpostman.com/collections/b8c5725741ba5c
 * Update new new hotel :  http://127.0.0.1/api/hotels/{hotel}
 * Delete hotel :  http://127.0.0.1/api/hotels/{hotel}
 * Show hotel :  http://127.0.0.1/api/hotels/{hotel}
-* Available search parameters:  [name, city_name , country, country, price , and filtering by rating ]
+* Available search parameters:  [name, city_name , country name , country, price , and filtering by rating ]
 * example 
  ```
 {

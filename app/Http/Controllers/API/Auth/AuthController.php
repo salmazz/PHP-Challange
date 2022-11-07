@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Http\Controllers\API\Auth;
 
 use App\Http\Controllers\Controller;
@@ -7,6 +9,7 @@ use App\Http\Requests\User\Auth\LoginRequest;
 use App\Http\Requests\User\Auth\RegisterRequest;
 use App\Services\User\UserService;
 use Illuminate\Http\Request;
+use Illuminate\Http\Resources\Json\JsonResource;
 
 class AuthController extends Controller
 {
@@ -24,7 +27,7 @@ class AuthController extends Controller
      * @param RegisterRequest $request
      * @return \Illuminate\Http\JsonResponse
      */
-    public function register(RegisterRequest $request)
+    public function register(RegisterRequest $request) :JsonResource
     {
         return $this->userService->register($request);
     }
@@ -33,12 +36,16 @@ class AuthController extends Controller
      * @param LoginRequest $request
      * @return \Illuminate\Http\JsonResponse
      */
-    public function login(LoginRequest $request)
+    public function login(LoginRequest $request) :JsonResource
     {
         return $this->userService->login($request);
     }
 
-    public function me(Request $request)
+    /**
+     * @param Request $request
+     * @return mixed
+     */
+    public function me(Request $request) :mixed
     {
         return $request->user();
     }

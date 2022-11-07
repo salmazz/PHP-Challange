@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Http\Controllers\API;
 
 use App\Helpers\HttpStatus;
@@ -9,6 +11,7 @@ use App\Http\Requests\Hotel\UpdateRequest;
 use App\Http\Resources\HotelResource;
 use App\Services\Hotel\HotelService;
 use App\Traits\ResponseTrait;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
 class HotelController extends Controller
@@ -33,17 +36,17 @@ class HotelController extends Controller
      * @return \Illuminate\Http\JsonResponse
      * @throws \Exception
      */
-    public function index(Request $request)
+    public function index(Request $request) :JsonResponse
     {
         return $this->response($this->hotelService->list($request), 'true', '', HttpStatus::HTTP_OK);
     }
 
     /**
      * @param StoreRequest $request
-     * @return mixed
+     * @return JsonResponse
      * @throws \Exception
      */
-    public function store(StoreRequest $request)
+    public function store(StoreRequest $request) :JsonResponse
     {
         return $this->response(new HotelResource($this->hotelService->create($request->validated())), 'true',
             'Hotel Stored Successfully', HttpStatus::HTTP_OK);
@@ -51,10 +54,10 @@ class HotelController extends Controller
 
     /**
      * @param $id
-     * @return mixed
+     * @return JsonResponse
      * @throws \Exception
      */
-    public function show($id)
+    public function show($id) :JsonResponse
     {
         return $this->response(new HotelResource($this->hotelService->find($id)), 'true', '', HttpStatus::HTTP_OK);
     }
@@ -62,10 +65,10 @@ class HotelController extends Controller
     /**
      * @param UpdateRequest $request
      * @param $id
-     * @return mixed
+     * @return JsonResponse
      * @throws \Exception
      */
-    public function update(UpdateRequest $request, $id)
+    public function update(UpdateRequest $request, $id) :JsonResponse
     {
         return $this->response(new HotelResource($this->hotelService->update($request->validated(), $id)),
             'true', 'Hotel Updated Successfully', HttpStatus::HTTP_OK);
@@ -76,7 +79,7 @@ class HotelController extends Controller
      * @return mixed
      * @throws \Exception
      */
-    public function destroy($id)
+    public function destroy($id) :mixed
     {
         $this->hotelService->delete($id);
         return $this->response([], true, 'Hotel Deleted Successfully', HttpStatus::HTTP_OK);

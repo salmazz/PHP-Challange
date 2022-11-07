@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Services\User;
 
 use App\Helpers\HttpStatus;
@@ -8,6 +10,7 @@ use App\Http\Requests\User\Auth\RegisterRequest;
 use App\Services\Service;
 use App\Repositories\User\UserRepository;
 use App\Traits\ResponseTrait;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
@@ -18,7 +21,7 @@ class UserService extends Service
     /**
      * @return string
      */
-    public function repository()
+    public function repository() :string
     {
         return UserRepository::class;
     }
@@ -27,7 +30,7 @@ class UserService extends Service
      * @param RegisterRequest $request
      * @return \Illuminate\Http\JsonResponse
      */
-    public function register(RegisterRequest $request)
+    public function register(RegisterRequest $request) :JsonResponse
     {
         $user = $this->repository->create([
             'name' => $request['name'],
@@ -45,7 +48,7 @@ class UserService extends Service
      * @param $request
      * @return \Illuminate\Http\JsonResponse
      */
-    public function login(LoginRequest $request)
+    public function login(LoginRequest $request) :JsonResponse
     {
         if (!Auth::attempt($request->only(['email', 'password']))) {
             return $this->response([],false,'Invalid Login details', HttpStatus::HTTP_UNAUTHORIZED);

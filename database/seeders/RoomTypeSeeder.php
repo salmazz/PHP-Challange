@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Database\Seeders;
 
 use App\Models\RoomType;
@@ -12,9 +14,8 @@ class RoomTypeSeeder extends Seeder
      *
      * @return void
      */
-    public function run()
+    public function run() :void
     {
-//        RoomType::factory()->count(20)->create();
         RoomType::factory()->create(['size' => 1, 'name' => 'Single']);
         RoomType::factory()->create(['size' => 2, 'name' => 'Double']);
         RoomType::factory()->create(['size' => 3, 'name' => 'Triple']);

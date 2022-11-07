@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Database\Seeders;
 
 use App\Models\City;
@@ -15,7 +17,7 @@ class CountrySeeder extends Seeder
      * @param $cities
      * @return void
      */
-    public function run()
+    public function run():void
     {
         $countries = Country::factory()->count(50)->create();
 

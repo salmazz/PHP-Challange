@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Database\Factories;
 
 use App\Models\City;
@@ -16,7 +18,7 @@ class HotelFactory extends Factory
      *
      * @return array<string, mixed>
      */
-    public function definition()
+    public function definition():array
     {
         return [
             'name' => rtrim(ucfirst(fake()->text(20)),'.'),

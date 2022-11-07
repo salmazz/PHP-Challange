@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -9,5 +11,8 @@ class RoomType extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['size', 'name'];
+    /**
+     * @var string[]
+     */
+    protected $fillable = ['size'];
 }

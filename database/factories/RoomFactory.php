@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Database\Factories;
 
 use App\Models\Hotel;
@@ -16,7 +18,7 @@ class RoomFactory extends Factory
      *
      * @return array<string, mixed>
      */
-    public function definition()
+    public function definition() :array
     {
         return [
             'name' => fake()->randomElement($array = array('single', 'double', 'triple', 'Quad', 'Queen'), 1,true),

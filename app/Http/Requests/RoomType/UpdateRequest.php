@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Http\Requests\RoomType;
 
 use Illuminate\Foundation\Http\FormRequest;
@@ -11,9 +13,9 @@ class UpdateRequest extends FormRequest
      *
      * @return bool
      */
-    public function authorize()
+    public function authorize() :bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -21,7 +23,7 @@ class UpdateRequest extends FormRequest
      *
      * @return array<string, mixed>
      */
-    public function rules()
+    public function rules() :array
     {
         return [
             'size' => 'required|integer|min:1',

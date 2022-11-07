@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Services\Room;
 
 use App\Repositories\Room\RoomTypeRepository;
@@ -9,7 +11,7 @@ class RoomTypeService extends Service{
     /**
      * @return string
      */
-    public function repository()
+    public function repository() :string
     {
         return RoomTypeRepository::class;
     }
