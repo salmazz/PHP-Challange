@@ -23,7 +23,7 @@ class HotelService extends Service
      */
     public function list(Request $request)
     {
-        $hotels = $this->repository->filter($request)->paginate(15);
+        $hotels = $this->repository->filter($request)->paginate(1);
         return HotelResource::collection($hotels)->response()->getData(true);
     }
 }
