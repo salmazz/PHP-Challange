@@ -47,6 +47,9 @@ run  ./vendor/bin/sail up -d to setup environment by docker
 
 ## APIs
 
+Link of postman collection https://www.getpostman.com/collections/b8c5725741ba5c234951 
+
+
 * Register new user   http://127.0.0.1/api/register/
 * Login user :  http://127.0.0.1/api/user/
 
