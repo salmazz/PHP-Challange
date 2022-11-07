@@ -2,7 +2,7 @@
 
 * Complete Crud for hotels, rooms , roomsTypes under auth middleware 
 * Generate data from seeder to countries ,cities and other entities 
-* Store the movies and categories using mysql database
+* Store the hotels and rooms and room types using mysql database
 * end points for all cruds and search with hotels and filtering with rating 
 * Can filter the result by some parameters for example filter by hotel name , city name ,
   country iso , price
